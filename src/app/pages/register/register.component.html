@@ -1,22 +1,107 @@
-<main>
-    <section id="register">
-        <form>
-            <h1>Register</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, saepe.</p>
-            <div class="form-group">
-                <label for="email">Username</label>
-                <input type="email" id="email" />
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" />
-            </div>
-            <div class="form-group">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" />
-            </div>
+<div class="signup-component">
+  <div class="signup-component__container">
+    <div class="signup-form-wrapper">
+      <main class="signup-form-side">
+        <form
+          class="signup-form"
+          (ngSubmit)="onSubmit($event)"
+          [formGroup]="registerForm"
+        >
+          <div class="signup-form-welcome-row">
+            <h1 class="signup-form-title">Sign up!!</h1>
+            <h2 class="signup-form-subtitle">
+              Welcome to Trekangle, create your account to get started.
+            </h2>
+          </div>
+          <div class="text-field">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="off"
+              placeholder="Your name"
+              required
+              formControlName="name"
+            />
+            <div class="error-message">Name in incorrect format</div>
+          </div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
+          <div class="text-field">
+            <label for="userName">Username</label>
+            <input
+              type="text"
+              id="userName"
+              name="userName"
+              autocomplete="off"
+              placeholder="Your userName"
+              required
+              formControlName="userName"
+            />
+            <div class="error-message">Username in incorrect format</div>
+          </div>
+
+          <div class="text-field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="off"
+              placeholder="you@example.com"
+              required
+              formControlName="email"
+            />
+            <div class="error-message">Email in incorrect format</div>
+          </div>
+
+          <div class="text-field password-field">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              [type]="viewPassword() ? 'text' : 'password'"
+              name="password"
+              placeholder="Your password"
+              title="Minimum 6 characters at least 1 Alphabet and 1 Number"
+              pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{6,16}$"
+              required
+              formControlName="password"
+            />
+            <img
+              class="password__icons show-password"
+              (click)="togglePassword()"
+              *ngIf="viewPassword()"
+              src="assets/img/show-password.svg"
+              alt="show password icon"
+            />
+            <img
+              class="password__icons"
+              (click)="togglePassword()"
+              *ngIf="!viewPassword()"
+              src="assets/img/hide-password.svg"
+              alt="hide password icon"
+            />
+            <div class="error-message">
+              Minimum 6 characters, at least 1 lowercase, 1 uppercase, 1 number
+              and 1 special character
+            </div>
+          </div>
+
+          <div *ngIf="errorMessage" class="error__message">
+            {{ errorMessage }}
+          </div>
+
+          <button class="signup-form__button" type="submit">Sign Up</button>
+
+          <div class="signup-form__actions">
+            <div class="signup-form__row">
+              <span>Already have an account?</span>
+              <a [routerLink]="'/login'" title="Reset Password">Log In</a>
+            </div>
+          </div>
         </form>
-    </section>
-</main>
+      </main>
+      <aside class="info-side"></aside>
+    </div>
+  </div>
+</div>
