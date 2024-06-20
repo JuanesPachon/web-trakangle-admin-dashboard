@@ -12,4 +12,13 @@ export class UserService {
     return this.http.get('http://localhost:3000/users/');
   }
 
+  registerUser(formValues: any) {
+    return this.http.post('http://localhost:3000/users', {
+      name: formValues.name,
+      userName: formValues.userName,
+      email: formValues.email,
+      password: formValues.password,
+    });
+  }
+
 }

@@ -15,7 +15,7 @@
     <main>
         <div class="header__container">
             <h1>Product list</h1>
-            <button>Add new</button>
+            <button (click)="toggleCreateOverlay()">Add new</button>
         </div>
         <div class="card-list">
 
@@ -25,4 +25,55 @@
             
         </div>
     </main>
+</div>
+
+<!-- Create user Overlay -->
+
+<div *ngIf="showCreateOverlay()" class="overlay-background" (click)="toggleCreateOverlay()"></div>
+
+<section *ngIf="showCreateOverlay()" class="create-overlay">
+
+  <h2 class="create-overlay__title">Create User</h2>
+
+  <form class="create-overlay__form" (ngSubmit)="onSubmit($event)" [formGroup]="registerForm">
+
+    <div class="create-overlay__form-row">
+      <label for="name">Name:</label>
+      <input formControlName="name" type="text" id="name" name="name" placeholder="Name" />
+    </div>
+
+    <div class="create-overlay__form-row">
+      <label for="userName">Username:</label>
+      <input formControlName="userName" type="text" id="userName" name="userName" placeholder="Username" />
+    </div>
+
+    <div class="create-overlay__form-row">
+      <label for="email">Email:</label>
+      <input formControlName="email" type="email" id="email" name="email" placeholder="Email" />
+    </div>
+
+    <div class="create-overlay__form-row">
+      <label for="password">Password:</label>
+      <input formControlName="password" type="password" id="password" name="password" placeholder="Password" />
+    </div>
+
+    <div *ngIf="errorMessage" class="error__message">{{ errorMessage }}</div>
+
+    <div class="create-overlay__buttons">
+      <button class="create-overlay__button" type="submit" (click)="toggleCreateOverlay()" >Cancel</button>
+      <button class="create-overlay__button" type="submit">Create</button>
+    </div>
+
+  </form>
+
+</section>
+
+<!-- Success notification -->
+
+<div class="notification" *ngIf="activeNotification()">
+    <div class="notification__body">
+        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
+        <p>Logged out. Until next time!</p>
+    </div>
+    <div class="notification__progress"></div>
 </div>
