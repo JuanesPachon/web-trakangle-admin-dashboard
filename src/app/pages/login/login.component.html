@@ -1,9 +1,8 @@
-
 <main class="login-component">
   <div class="login-component__container">
     <div class="login-form-wrapper">
       <main class="login-form-side">
-        <form class="login-form">
+        <form class="login-form" (ngSubmit)="onSubmit($event)" [formGroup]="adminForm">
           <div class="login-form-welcome-row">
             <h1 class="login-form-title">Welcome back! 👋</h1>
             <h2 class="login-form-subtitle">Login with your account!</h2>
@@ -19,10 +18,11 @@
           <div class="text-field password-field">
             <label for="password">Password</label>
             <input id="password" [type]="viewPassword() ? 'text' : 'password'" name="password"
-              placeholder="Your password"
-              required formControlName="password" />
-            <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()" src="/img/show-password.svg" alt="show password icon">
-            <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()" src="/img/hide-password.svg" alt="hide password icon">
+              placeholder="Your password" required formControlName="password" />
+            <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()"
+              src="/img/show-password.svg" alt="show password icon">
+            <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()" src="/img/hide-password.svg"
+              alt="hide password icon">
           </div>
 
           <div *ngIf="errorMessage" class="error__message">
@@ -46,4 +46,3 @@
     </div>
   </div>
 </main>
-

@@ -5,7 +5,7 @@ export const alreadyLoggedGuard = () => {
 
     const router = inject(Router);
 
-    if (localStorage.getItem("user_token")) {
+    if (localStorage.getItem("admin_token")) {
         router.navigate(["/"]);
         return false;
     } else {
