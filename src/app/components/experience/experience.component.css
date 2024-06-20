@@ -11,10 +11,11 @@
 }
 
 .card img {
-    max-width: 6rem;
     border-radius: 10px;
     border: 2px solid black;
     object-fit: cover;
+    width: 6rem;
+    height: 6rem;
 }
 
 .card .properties {

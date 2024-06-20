@@ -1,6 +1,6 @@
 <div class="card">
     <div class="properties">
-        <img [src]="['http://localhost:3000/uploads', experience.images[0]]" alt="">
+        <img [src]="'http://localhost:3000/uploads/' + experience.images[0]" alt="">
         <div class="property">
             <span class="title">Product name</span>
             <h2>{{experience.name}}</h2>
@@ -8,7 +8,7 @@
 
         <div class="property">
             <span class="title">Price</span>
-            <h2>${{experience.Price}}</h2>
+            <h2>${{experience.price}}</h2>
         </div>
 
         <div class="property">

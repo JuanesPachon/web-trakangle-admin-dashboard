@@ -17,9 +17,9 @@ export class ExperienceListComponent{
 
   ngOnInit() {
 
-    this.ExperienceService.ExperienceList().subscribe({
+    this.ExperienceService.ExperienceList(1).subscribe({
       next: (experience: any) => {
-        this.experiences.set(experience);
+        this.experiences.set(experience.experiences);
         console.log(experience);
       },
       error: (error) => {

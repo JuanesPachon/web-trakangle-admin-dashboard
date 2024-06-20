@@ -1,7 +1,5 @@
 
 .main-wrapper {
-    display: grid;
-    grid-template-columns: .22fr 2fr;
     font-family: var(--arvo-subtitle-font);
 }
 
@@ -13,7 +11,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    max-width: 10rem;
     border-right: 3px solid black;
+    position: fixed;
+    left: 0;
 }
 
 .sidebar nav {
@@ -94,15 +95,14 @@
 
 main {
     padding-left: 5rem;
-    margin-left: 2rem;
-    background-image: url("../../../../public/img/main_bg.png");
+    margin-left: 12rem;
     padding: 1.5rem;
 }
 
 .header__container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .header__container button {

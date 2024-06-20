@@ -65,7 +65,7 @@ html {
 
 body {
   background-color: var(--white-bg);
-  background-image: url("/src/assets/img/main_bg.png");
+  background-image: url("/img/main_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

@@ -209,10 +209,6 @@
     right: 3%;
     width: 1.55rem;
   }
- 
-  .show-password {
-    width: 1.6rem;
-  }
   
   @media (max-width: 1024px) {
 

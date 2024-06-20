@@ -18,10 +18,11 @@
 
           <div class="text-field password-field">
             <label for="password">Password</label>
-            <input id="password" [type]="viewPassword() ? 'text' : 'password'" name="password" placeholder="Your password"
+            <input id="password" [type]="viewPassword() ? 'text' : 'password'" name="password"
+              placeholder="Your password"
               required formControlName="password" />
-            <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()" src="img/show-password.svg" alt="show password icon">
-            <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()" src="img/hide-password.svg" alt="hide password icon">
+            <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()" src="/img/show-password.svg" alt="show password icon">
+            <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()" src="/img/hide-password.svg" alt="hide password icon">
           </div>
 
           <div *ngIf="errorMessage" class="error__message">
