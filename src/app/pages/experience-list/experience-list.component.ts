@@ -1,12 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
-import { CardComponent } from '../../components/card/card.component';
 import { ExperienceService } from '../../services/experience.service';
-import { ExperienceComponent } from '../../components/experience/experience.component';
+import { ExperienceCardComponent } from '../../components/experience-card/experience-card.component';
 
 @Component({
   selector: 'app-experience-list',
   standalone: true,
-  imports: [CardComponent, ExperienceComponent],
+  imports: [ExperienceCardComponent],
   templateUrl: './experience-list.component.html',
   styleUrl: './experience-list.component.css'
 })

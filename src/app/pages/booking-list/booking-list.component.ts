@@ -1,12 +1,11 @@
 import { Component,inject, signal } from '@angular/core';
-import { CardComponent } from '../../components/card/card.component';
 import { BookingService } from '../../services/booking.service';
 import { BookingCardComponent } from '../../components/booking-card/booking-card.component';
 
 @Component({
   selector: 'app-booking-list',
   standalone: true,
-  imports: [CardComponent, BookingCardComponent],
+  imports: [BookingCardComponent],
   templateUrl: './booking-list.component.html',
   styleUrl: './booking-list.component.css'
 })

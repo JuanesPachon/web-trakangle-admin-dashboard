@@ -4,10 +4,10 @@ import { Component, Input } from '@angular/core';
   selector: 'app-card',
   standalone: true,
   imports: [],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  templateUrl: './user-card.component.html',
+  styleUrl: './user-card.component.css'
 })
-export class CardComponent {
+export class UserCardComponent {
 
   @Input() user: any;
 

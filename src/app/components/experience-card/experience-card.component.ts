@@ -4,10 +4,10 @@ import { Component, Input } from '@angular/core';
   selector: 'app-experience',
   standalone: true,
   imports: [],
-  templateUrl: './experience.component.html',
-  styleUrl: './experience.component.css'
+  templateUrl: './experience-card.component.html',
+  styleUrl: './experience-card.component.css'
 })
-export class ExperienceComponent {
+export class ExperienceCardComponent {
 
   @Input() experience: any;
   

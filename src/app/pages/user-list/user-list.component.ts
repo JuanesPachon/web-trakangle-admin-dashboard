@@ -1,11 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
-import { CardComponent } from '../../components/card/card.component';
+import { UserCardComponent } from '../../components/user-card/user-card.component';
 import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [CardComponent],
+  imports: [UserCardComponent],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
