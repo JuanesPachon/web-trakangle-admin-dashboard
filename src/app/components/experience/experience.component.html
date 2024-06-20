@@ -1,19 +1,19 @@
 <div class="card">
     <div class="properties">
-        <img src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="">
+        <img [src]="['http://localhost:3000/uploads', experience.images[0]]" alt="">
         <div class="property">
             <span class="title">Product name</span>
-            <h2>Monserrate</h2>
+            <h2>{{experience.name}}</h2>
         </div>
 
         <div class="property">
             <span class="title">Price</span>
-            <h2>$ 350000</h2>
+            <h2>${{experience.Price}}</h2>
         </div>
 
         <div class="property">
             <span class="title">Location</span>
-            <h2>Colombia, Bogota</h2>
+            <h2>{{experience.place}}</h2>
         </div>
 
     </div>

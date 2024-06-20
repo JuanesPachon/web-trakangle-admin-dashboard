@@ -14,6 +14,7 @@
     max-width: 6rem;
     border-radius: 10px;
     border: 2px solid black;
+    object-fit: cover;
 }
 
 .card .properties {
