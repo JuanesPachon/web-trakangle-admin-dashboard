@@ -8,9 +8,9 @@
           alt="logo"
         />
         <ul>
-          <li><a href="">Products</a></li>
-          <li><a href="">Categories</a></li>
-          <li><a href="">Orders</a></li>
+          <li><a class="admin_options" href="">Users</a></li>
+          <li><a class="admin_options" href="">Experiences</a></li>
+          <li><a class="admin_options" href="">Bookings</a></li>
         </ul>
       </div>
       <button class="checkout">Logout</button>
@@ -22,8 +22,9 @@
       <button>Add new</button>
     </div>
     <div class="card-list">
-      <app-card />
-      <app-card />
+      @for (booking of bookings(); track booking._id ){
+      <app-booking-card [booking]="booking" />
+      }
     </div>
   </main>
 </div>
