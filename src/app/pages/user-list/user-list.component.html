@@ -18,8 +18,11 @@
             <button>Add new</button>
         </div>
         <div class="card-list">
-            <app-card/>
-            <app-card/>
+
+            @for (user of users(); track user._id) {
+                <app-card [user]="user"/>
+            }
+            
         </div>
     </main>
 </div>
