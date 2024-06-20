@@ -1,12 +1,17 @@
 .main-wrapper {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: .22fr 2fr;
+    font-family: var(--arvo-subtitle-font);
 }
 
 .sidebar {
     height: 100vh;
     padding: 1rem;
     position: relative;
+    background-image: url("../../../../public/img/navbar_png.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
 }
 
 .sidebar nav {
@@ -20,11 +25,9 @@
 
 .sidebar nav .logo {
     width: 100%;
-    display: inline-block;
-    margin-bottom: 1.5rem;
     text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: bold;
+    scale: 1.2;
+    margin-bottom: .5rem;
 }
 
 .sidebar nav ul {
@@ -32,6 +35,7 @@
     flex-direction: column;
     gap: .5rem;
     list-style: none;
+    margin-top: .5rem;
 }
 
 .sidebar nav ul a {
@@ -43,6 +47,7 @@
     padding: 0.7rem 1rem;
     border-radius: 0.2rem;
     transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    color: white;
 }
 
 .sidebar nav ul a:before {
@@ -57,21 +62,22 @@
 }
 
 .sidebar nav ul a:hover {
-    color: rgb(0, 0, 69);
-    background-color: rgb(222, 222, 255);
+    color: rgb(0, 0, 0);
+    background-color: rgb(79, 186, 43);
 }
 
 .sidebar nav .checkout {
-    width: 75%;
+    width: 92%;
     display: block;
     text-decoration: none;
     padding: 0.7rem 1rem;
-    border: none;
+    border: 2px solid black;
     border-radius: 0.2rem;
     background-color: rgb(255, 44, 44);
     color: rgb(253, 213, 213);
     cursor: pointer;
     transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+    text-align: center;
 }
 
 .sidebar nav .checkout:hover {
@@ -80,7 +86,8 @@
 }
 
 main {
-    padding-left: 250px;
+    padding-left: 5rem;
+    margin-left: 2rem;
     background-color: #F5F6FA;
     padding: 1.5rem;
 }
@@ -90,4 +97,9 @@ main .card-list {
     flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
+}
+
+h1 {
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    font-weight: 700;
 }

@@ -1,12 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RouterLinkWithHref } from '@angular/router';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterLinkWithHref],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
