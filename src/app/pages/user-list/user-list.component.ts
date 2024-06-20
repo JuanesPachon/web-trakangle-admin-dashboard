@@ -5,9 +5,9 @@ import { CardComponent } from '../../components/card/card.component';
   selector: 'app-product-list',
   standalone: true,
   imports: [CardComponent],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+  templateUrl: './user-list.component.html',
+  styleUrl: './user-list.component.css'
 })
-export class ProductListComponent {
+export class UserListComponent {
 
 }
