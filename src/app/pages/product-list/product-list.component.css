@@ -1,3 +1,4 @@
+
 .main-wrapper {
     display: grid;
     grid-template-columns: .22fr 2fr;
@@ -12,6 +13,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    border-right: 3px solid black;
 }
 
 .sidebar nav {
@@ -48,6 +50,7 @@
     border-radius: 0.2rem;
     transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
     color: white;
+    cursor: pointer;
 }
 
 .sidebar nav ul a:before {
@@ -69,7 +72,6 @@
 .sidebar nav .checkout {
     width: 92%;
     display: block;
-    text-decoration: none;
     padding: 0.7rem 1rem;
     border: 2px solid black;
     border-radius: 0.2rem;
@@ -88,8 +90,30 @@
 main {
     padding-left: 5rem;
     margin-left: 2rem;
-    background-color: #F5F6FA;
+    background-image: url("../../../../public/img/main_bg.png");
     padding: 1.5rem;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.header__container button {
+    padding: 0.7rem 1rem;
+    border: 2px solid black;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    text-align: center;
+    background-color: var(--main-green);
+    color: white;
+    min-width: 10rem;
+}
+
+.header__container button:hover {
+    background-color: rgb(10, 160, 10);
 }
 
 main .card-list {
