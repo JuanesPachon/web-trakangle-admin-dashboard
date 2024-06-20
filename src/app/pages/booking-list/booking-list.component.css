@@ -40,7 +40,7 @@
 }
 
 .sidebar nav ul a {
-    width: 100%;
+    width: 95%;
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -63,9 +63,15 @@
     opacity: 0.4;
 }
 
-.sidebar nav ul a:hover {
+.sidebar nav ul .admin_options--3 {
     color: rgb(0, 0, 0);
     background-color: rgb(79, 186, 43);
+}
+
+
+.sidebar nav ul a:hover {
+    color: rgb(0, 0, 0);
+    background-color: var(--white-bg);
 }
 
 .sidebar nav .checkout {

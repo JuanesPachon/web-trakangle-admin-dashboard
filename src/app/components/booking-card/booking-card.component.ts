@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-booking-card',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './booking-card.component.css'
 })
 export class BookingCardComponent {
-
+  @Input() booking: any;
 }
