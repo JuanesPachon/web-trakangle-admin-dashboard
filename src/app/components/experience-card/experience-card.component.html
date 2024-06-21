@@ -18,7 +18,67 @@
 
     </div>
     <div class="actions">
-        <button class="edit">Edit</button>
-        <button class="delete">Delete</button>
+        <button (click)="toggleEditExperienceOverlay()" class="edit">Edit</button>
+        <button (click)="deleteExperience()" class="delete">Delete</button>
     </div>
 </div>
+
+<div *ngIf="showEditExperienceOverlay()" class="overlay-background" (click)="toggleEditExperienceOverlay()"></div>
+
+<section *ngIf="showEditExperienceOverlay()" class="edit-overlay">
+
+    <h2 class="edit-overlay__title">Edit User</h2>
+
+    <form class="edit-overlay__form" (ngSubmit)="onEditSubmit($event)" [formGroup]="editForm">
+
+        <div class="edit-overlay__form-row">
+            <label for="name">Name:</label>
+            <input formControlName="name" type="text" id="name" name="name" placeholder="Name" />
+        </div>
+
+        <div class="edit-overlay__form-row">
+            <label for="place">Place:</label>
+            <input formControlName="place" type="text" id="place" name="place" placeholder="Place" />
+        </div>
+
+        <div class="edit-overlay__form-row">
+            <label for="price">Price:</label>
+            <input formControlName="price" type="text" id="price" name="price" placeholder="Price" />
+        </div>
+
+        <div class="edit-overlay__form-row">
+            <label for="description">Description:</label>
+            <input formControlName="description" type="text" id="description" name="description" placeholder="Description" />
+        </div>
+
+        <div class="edit-overlay__form-row">
+            <label for="images">Images:</label>
+            <input formControlName="images" type="file" id="images" name="images" placeholder="Images" multiple/>
+        </div>
+
+        <div *ngIf="errorMessage" class="error__message">{{ errorMessage }}</div>
+
+        <div class="edit-overlay__buttons">
+            <button class="edit-overlay__button" type="submit" (click)="toggleEditExperienceOverlay()">Cancel</button>
+            <button class="edit-overlay__button" type="submit">Create</button>
+        </div>
+
+    </form>
+
+</section>
+
+<div class="notification" *ngIf="activeEditExperienceNotification()">
+    <div class="notification__body">
+        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
+        <p>The experience was successfully updated.</p>
+    </div>
+    <div class="notification__progress"></div>
+</div>
+
+<div class="notification" *ngIf="activeDeleteExperienceNotification()">
+    <div class="notification__body">
+        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
+        <p>The experience was successfully deleted.</p>
+    </div>
+    <div class="notification__progress"></div>
+</div> 
