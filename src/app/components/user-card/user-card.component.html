@@ -13,10 +13,67 @@
             <span class="title">email</span>
             <h2>{{user.email}}</h2>
         </div>
-        
+
     </div>
     <div class="actions">
-        <button class="edit">Edit</button>
-        <button class="delete">Delete</button>
+        <button class="edit" (click)="toggleEditOverlay()">Edit</button>
+        <button class="delete" (click)="deleteUser()">Delete</button>
     </div>
+</div>
+
+<!-- Edit user Overlay -->
+
+<div *ngIf="showEditOverlay()" class="overlay-background" (click)="toggleEditOverlay()"></div>
+
+<section *ngIf="showEditOverlay()" class="edit-overlay">
+
+    <h2 class="edit-overlay__title">Edit User</h2>
+
+    <form class="edit-overlay__form" (ngSubmit)="onEditSubmit($event)" [formGroup]="editForm">
+
+        <div class="edit-overlay__form-row">
+            <label for="name">Name:</label>
+            <input formControlName="name" type="text" id="name" name="name" placeholder="Name" />
+        </div>
+
+        <div class="edit-overlay__form-row">
+            <label for="userName">Username:</label>
+            <input formControlName="userName" type="text" id="userName" name="userName" placeholder="Username" />
+        </div>
+
+        <div class="edit-overlay__form-row">
+            <label for="email">Email:</label>
+            <input formControlName="email" type="email" id="email" name="email" placeholder="Email" />
+        </div>
+
+        <div class="edit-overlay__form-row">
+            <label for="password">Password:</label>
+            <input formControlName="password" type="password" id="password" name="password" placeholder="Password" />
+        </div>
+
+        <div *ngIf="errorMessage" class="error__message">{{ errorMessage }}</div>
+
+        <div class="edit-overlay__buttons">
+            <button class="edit-overlay__button" type="submit" (click)="toggleEditOverlay()">Cancel</button>
+            <button class="edit-overlay__button" type="submit">Create</button>
+        </div>
+
+    </form>
+
+</section>
+
+<div class="notification" *ngIf="activeEditNotification()">
+    <div class="notification__body">
+        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
+        <p>The user was successfully updated.</p>
+    </div>
+    <div class="notification__progress"></div>
+</div>
+
+<div class="notification" *ngIf="activeDeleteNotification()">
+    <div class="notification__body">
+        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
+        <p>The user was successfully deleted.</p>
+    </div>
+    <div class="notification__progress"></div>
 </div>
