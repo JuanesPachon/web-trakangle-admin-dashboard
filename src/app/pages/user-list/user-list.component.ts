@@ -3,11 +3,12 @@ import { UserCardComponent } from '../../components/user-card/user-card.componen
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [UserCardComponent, CommonModule, ReactiveFormsModule],
+  imports: [UserCardComponent, CommonModule, ReactiveFormsModule, RouterLinkWithHref],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
