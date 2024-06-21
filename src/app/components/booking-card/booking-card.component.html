@@ -1,9 +1,6 @@
 <div class="card">
   <div class="properties">
-    <img
-      src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
-      alt=""
-    />
+    <img [src]="'http://localhost:3000/uploads/' + booking.images[0]" alt="" />
     <div class="property">
       <span class="title">Name</span>
       <h2>{{ booking.name }}</h2>

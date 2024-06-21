@@ -11,7 +11,7 @@
           <li [routerLink]="'/'">
             <a class="admin_options--1">Users</a>
           </li>
-          <li [routerLink]="'/Experiences'">
+          <li [routerLink]="'/experiences'">
             <a class="admin_options--2">Experiences</a>
           </li>
           <li><a class="admin_options--3">Bookings</a></li>
@@ -26,7 +26,7 @@
       <button>Add new</button>
     </div>
     <div class="card-list">
-      @for (booking of bookings(); track booking._id ){
+      @for (booking of bookings; track booking._id ){
       <app-booking-card [booking]="booking" />
       }
     </div>

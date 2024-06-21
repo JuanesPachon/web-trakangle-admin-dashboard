@@ -12,13 +12,20 @@ import { RouterLinkWithHref } from '@angular/router';
 })
 export class BookingListComponent {
     private BookingService = inject(BookingService);
-    bookings = signal<any>([])
+    bookings : any[] = []
 
     ngOnInit() {
       this.BookingService.bookingList().subscribe({
         next: (bookings: any) => {
-          this.bookings.set(bookings);
-          console.log(bookings)
+          const allExperienceIds: any[] = [];
+
+        bookings.forEach((booking: any) => {
+          booking.experiences.forEach((experience: any) => {
+            allExperienceIds.push(experience.experienceId);
+          });
+        });
+
+        this.bookings = allExperienceIds;
         },
         error: (error) => {
           console.log(error);
