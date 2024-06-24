@@ -33,15 +33,43 @@ export class ExperienceCardComponent {
     place: new FormControl(''),
     price: new FormControl(''),
     description: new FormControl(''),
+    images: new FormControl(null),
   });
 
   // Edit Request
 
+  images: File[] = [];
+
+  onFileChange(event: any) {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      this.images = Array.from(files);
+    }
+  }
+
+  toFormData(formValue: any) {
+    const formData = new FormData();
+    for (const key in formValue) {
+      if (
+        formValue.hasOwnProperty(key) &&
+        formValue[key] !== null &&
+        formValue[key] !== undefined
+      ) {
+        formData.append(key, formValue[key]);
+      }
+    }
+    if (this.images && this.images.length > 0) {
+      this.images.forEach((image) => {
+        formData.append('images', image, image.name);
+      });
+    }
+    return formData;
+  }
+
   onEditSubmit(event: Event) {
-    if (this.editForm.valid) {
-      this.experienceService
-        .editExperience(this.editForm.value, this.experience._id)
-        .subscribe({
+    if (this.editForm.valid && this.images) {
+      const formData = this.toFormData(this.editForm.value);
+      this.experienceService.editExperience(formData, this.experience._id).subscribe({
           next: (experience) => {
             window.location.reload();
             localStorage.setItem('showEditExperienceNotification', 'true');
@@ -55,7 +83,7 @@ export class ExperienceCardComponent {
             }
             console.log(error);
           },
-        });
+      });
     }
   }
 

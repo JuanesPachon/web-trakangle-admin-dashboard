@@ -7,7 +7,7 @@
     height: 100%;
     box-sizing: border-box;
     margin: 0 auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
   
   .login-component__container {
@@ -205,7 +205,7 @@
 
   .password__icons {
     position: absolute;
-    top: 52%;
+    top: 54%;
     right: 3%;
     width: 1.55rem;
   }

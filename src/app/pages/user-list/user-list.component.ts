@@ -85,4 +85,11 @@ export class UserListComponent {
     }
   }
 
+  // Log Out
+
+  logOut() {
+    localStorage.removeItem('admin_token');
+    window.location.reload();
+  }
+
 }

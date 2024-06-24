@@ -41,6 +41,12 @@
   font-size: 1.2rem;
   height: 1.2rem;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 27rem;
+  overflow: hidden;
+  line-height: .8;
+  min-width: 10rem;
 }
 
 .card .actions {
@@ -64,11 +70,19 @@
   cursor: pointer;
 }
 
+.card .actions .edit:hover {
+  background-color: rgb(92, 192, 92);
+}
+
 .card .actions .delete {
-  background-color: rgb(243, 44, 44);
+  background-color: rgb(204, 35, 35);
   color: rgb(255, 255, 255);
   border: 2px solid black;
   cursor: pointer;
+}
+
+.card .actions .delete:hover {
+  background-color: rgb(243, 44, 44);
 }
 
 @media screen and (max-width: 1240px) {

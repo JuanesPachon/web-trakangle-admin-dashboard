@@ -15,46 +15,36 @@ export class ExperienceService {
     return this.http.get(`http://localhost:3000/experiences/${queryParams}`);
   }
 
-  createExperience(formValues: any){
-    
+  createExperience(formData: FormData) {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('admin_token')
+    });
+  
+    return this.http.post("http://localhost:3000/experiences", formData, { headers: headers });
+  }
+
+  editExperience(formData: FormData, experienceId: string) {
+    const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem('admin_token')
     });
 
-    return this.http.post("http://localhost:3000/experiences/", {
-      name: formValues.name,
-      place: formValues.place,
-      price: formValues.price,
-      description: formValues.description,
-      images: formValues.images
-    }, { headers: headers } )
+    const filteredFormData = this.filterFormData(formData);
 
-  }
-  editExperience(formValues: any, experienceId: string) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem('admin_token')}`,
-    });
-
-    const updateExperience: any = {};
-
-    if (formValues.name) {
-      updateExperience.name = formValues.name;
-    }
-    if (formValues.place) {
-      updateExperience.place = formValues.place;
-    }
-    if (formValues.price) {
-      updateExperience.price = formValues.price;
-    }
-    if (formValues.description) {
-      updateExperience.description = formValues.description;
-    }
-
-    return this.http.patch(`http://localhost:3000/experiences/${experienceId}`, updateExperience, {
+    return this.http.patch(`http://localhost:3000/experiences/${experienceId}`, filteredFormData, {
       headers: headers,
     });
+  }
+
+  filterFormData(formData: FormData): FormData {
+    const filteredFormData = new FormData();
+
+    formData.forEach((value, key) => {
+      if (value !== '' && value !== null && value !== undefined) {
+        filteredFormData.append(key, value);
+      }
+    });
+
+    return filteredFormData;
   }
 
   deleteExperience(experienceId: string) {

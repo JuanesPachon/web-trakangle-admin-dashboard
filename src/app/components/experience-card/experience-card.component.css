@@ -42,13 +42,22 @@
   margin-top: 0.5rem;
   font-size: 1.2rem;
   height: 1.2rem;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  max-width: 14.5rem;
+  overflow: hidden;
+  line-height: .8;
+}
+
+.card .properties .property h2:nth-child(2) {
+  min-width: 6rem;
 }
 
 .card .actions {
   display: flex;
   gap: 0.8rem;
   margin-right: 1.5rem;
+  cursor: pointer;
 }
 
 .card .actions > * {
@@ -63,12 +72,22 @@
   background-color: var(--main-green);
   color: rgb(255, 255, 255);
   border: 2px solid black;
+  cursor: pointer;
+}
+
+.card .actions .edit:hover {
+  background-color: rgb(92, 192, 92);
 }
 
 .card .actions .delete {
-  background-color: rgb(243, 44, 44);
+  background-color: rgb(204, 35, 35);
   color: rgb(255, 255, 255);
   border: 2px solid black;
+  cursor: pointer;
+}
+
+.card .actions .delete:hover {
+  background-color: rgb(243, 44, 44);
 }
 
 /* ===================================================================================================
@@ -157,6 +176,17 @@
   border: 2px solid black;
   border-radius: 5px;
   font-family: var(--source3-text-font);
+}
+
+.edit-overlay__form-row textarea {
+  resize: none;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-family: var(--source3-text-font);
+  min-height: 6rem;
 }
 
 .error__message {

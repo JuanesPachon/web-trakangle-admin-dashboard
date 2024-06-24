@@ -8,10 +8,12 @@
     padding: 1.5rem;
     overflow: hidden;
     border: 3px solid black;
+    min-height: 5rem;
 }
 
 .card img {
     max-width: 6rem;
+    height: 5rem;
     border-radius: 10px;
     border: 2px solid black;
 }
@@ -40,13 +42,11 @@
     margin-top: 0.5rem;
     font-size: 1.2rem;
     height: 1.2rem;
+    white-space: nowrap;
     text-overflow: ellipsis;
-}
-
-.card .actions {
-    display: flex;
-    gap: 0.8rem;
-    margin-right: 1.5rem;
+    max-width: 27rem;
+    overflow: hidden;
+    line-height: .8;
 }
 
 

@@ -27,39 +27,39 @@
 
 <section *ngIf="showEditExperienceOverlay()" class="edit-overlay">
 
-    <h2 class="edit-overlay__title">Edit User</h2>
+    <h2 class="edit-overlay__title">Edit Experience</h2>
 
-    <form class="edit-overlay__form" (ngSubmit)="onEditSubmit($event)" [formGroup]="editForm">
+    <form class="edit-overlay__form" (ngSubmit)="onEditSubmit($event)" [formGroup]="editForm" enctype="multipart/form-data">
 
         <div class="edit-overlay__form-row">
             <label for="name">Name:</label>
-            <input formControlName="name" type="text" id="name" name="name" placeholder="Name" />
+            <input formControlName="name" type="text" id="name" name="name" [placeholder]="experience.name" />
         </div>
 
         <div class="edit-overlay__form-row">
             <label for="place">Place:</label>
-            <input formControlName="place" type="text" id="place" name="place" placeholder="Place" />
+            <input formControlName="place" type="text" id="place" name="place" [placeholder]="experience.place" />
         </div>
 
         <div class="edit-overlay__form-row">
             <label for="price">Price:</label>
-            <input formControlName="price" type="text" id="price" name="price" placeholder="Price" />
+            <input formControlName="price" type="text" id="price" name="price" [placeholder]="experience.price" />
         </div>
 
         <div class="edit-overlay__form-row">
             <label for="description">Description:</label>
-            <input formControlName="description" type="text" id="description" name="description" placeholder="Description" />
+            <textarea formControlName="description" type="text" id="description" name="description" placeholder="Description"></textarea> 
         </div>
 
         <div class="edit-overlay__form-row">
             <label for="images">Images:</label>
-            <input formControlName="images" type="file" id="images" name="images" placeholder="Images" multiple/>
+            <input formControlName="images" (change)="onFileChange($event)" type="file" id="images" name="images" placeholder="Images" multiple/>
         </div>
 
         <div *ngIf="errorMessage" class="error__message">{{ errorMessage }}</div>
 
         <div class="edit-overlay__buttons">
-            <button class="edit-overlay__button" type="submit" (click)="toggleEditExperienceOverlay()">Cancel</button>
+            <button class="edit-overlay__button" (click)="toggleEditExperienceOverlay()">Cancel</button>
             <button class="edit-overlay__button" type="submit">Create</button>
         </div>
 

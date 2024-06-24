@@ -19,6 +19,7 @@ export class BookingListComponent {
     this.BookingService.bookingList().subscribe({
       next: (bookings: any) => {
         const allExperienceIds: any[] = [];
+        console.log(bookings);
 
         bookings.forEach((booking: any) => {
           booking.experiences.forEach((experience: any) => {
@@ -28,11 +29,19 @@ export class BookingListComponent {
             });
           });
         });
+        console.log(allExperienceIds);
         this.bookings = allExperienceIds;
       },
       error: (error) => {
         console.log(error);
       },
     });
+  }
+
+  // Log Out
+
+  logOut() {
+    localStorage.removeItem('admin_token');
+    window.location.reload();
   }
 }

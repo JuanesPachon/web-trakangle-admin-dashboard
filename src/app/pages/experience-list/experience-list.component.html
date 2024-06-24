@@ -5,16 +5,16 @@
                 <img class="logo" src="/img/Logo_completo_BIT_project__horizontal.svg" alt="logo">
                 <ul>
                     <li [routerLink]="'/'"><a class="admin_options--1">Users</a></li>
-                    <li><a class="admin_options--2">Experience</a></li>
+                    <li><a class="admin_options--2">Experiences</a></li>
                     <li [routerLink]="'/bookings'"><a class="admin_options--3">Bookings</a></li>
                 </ul>
             </div>
-            <button class="checkout">Logout</button>
+            <button class="checkout" (click)="logOut()">Logout</button>
         </nav>
     </div>
     <main>
         <div class="header__container">
-            <h1>Product list</h1>
+            <h1>Experiences list</h1>
             <button (click)="toggleCreateOverlay()">Add new</button>
         </div>
         <div class="card-list">
@@ -33,7 +33,7 @@
 
 <section *ngIf="showCreateOverlay()" class="create-overlay">
 
-  <h2 class="create-overlay__title">Create User</h2>
+  <h2 class="create-overlay__title">Create Experience</h2>
 
   <form class="create-overlay__form" (ngSubmit)="onSubmit($event)" [formGroup]="createExperienceForm" enctype="multipart/form-data"> 
 
@@ -55,12 +55,12 @@
 
     <div class="create-overlay__form-row">
       <label for="description">Description:</label>
-      <input formControlName="description" type="text" id="description" name="description" placeholder="Description" />
+      <textarea formControlName="description" type="text" id="description" name="description" placeholder="Description" ></textarea>
     </div>
 
     <div class="create-overlay__form-row">
         <label for="images">Images:</label>
-        <input formControlName="images" type="file" id="images" name="images" placeholder="Images" multiple />
+        <input formControlName="images" (change)="onFileChange($event)" type="file" id="images" name="images" placeholder="Images" multiple (change)="onFileChange($event)"/>
       </div>
 
     <div *ngIf="errorMessage" class="error__message">{{ errorMessage }}</div>
