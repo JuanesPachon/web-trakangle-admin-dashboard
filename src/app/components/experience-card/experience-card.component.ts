@@ -2,11 +2,12 @@ import { Component, Input, inject, signal } from '@angular/core';
 import { ExperienceService } from '../../services/experience.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NotificationComponent } from '../notification/notification.component';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NotificationComponent],
   templateUrl: './experience-card.component.html',
   styleUrl: './experience-card.component.css',
 })

@@ -67,18 +67,6 @@
 
 </section>
 
-<div class="notification" *ngIf="activeEditExperienceNotification()">
-    <div class="notification__body">
-        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
-        <p>The experience was successfully updated.</p>
-    </div>
-    <div class="notification__progress"></div>
-</div>
+<app-notification [title]="'The experience was successfully updated.'" *ngIf="activeEditExperienceNotification()"/>
 
-<div class="notification" *ngIf="activeDeleteExperienceNotification()">
-    <div class="notification__body">
-        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
-        <p>The experience was successfully deleted.</p>
-    </div>
-    <div class="notification__progress"></div>
-</div> 
+<app-notification [title]="'The experience was successfully deleted.'" *ngIf="activeDeleteExperienceNotification()"/>

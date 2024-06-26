@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { NotificationComponent } from '../notification/notification.component';
 
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NotificationComponent],
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.css',
 })
@@ -90,6 +91,14 @@ export class UserCardComponent {
       this.activeDeleteNotification.update(value => !value);
       localStorage.removeItem('showDeleteNotification');
     }
+  }
+
+  //show password
+
+  viewPassword = signal(false);
+
+  togglePassword() {
+    this.viewPassword.update(value => !value);
   }
 
 }
