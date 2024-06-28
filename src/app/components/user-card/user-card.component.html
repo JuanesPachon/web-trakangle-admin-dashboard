@@ -1,6 +1,6 @@
 <div class="card">
     <div class="properties">
-        <img src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg" alt="">
+        <img [src]="user.profileImage ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + user.profileImage : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'" alt="">
         <div class="property">
             <span class="title">Name</span>
             <h2>{{user.name}}</h2>
@@ -59,7 +59,7 @@
 
         <div class="edit-overlay__buttons">
             <button class="edit-overlay__button" (click)="toggleEditOverlay()">Cancel</button>
-            <button class="edit-overlay__button" type="submit">Create</button>
+            <button class="edit-overlay__button" type="submit">Save</button>
         </div>
 
     </form>

@@ -1,6 +1,6 @@
 <div class="card">
     <div class="properties">
-        <img [src]="'http://localhost:3000/uploads/' + experience.images[0]" alt="">
+        <img [src]="experience.images.length > 0 ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + experience.images[0] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'" alt="">
         <div class="property">
             <span class="title">Product name</span>
             <h2>{{experience.name}}</h2>
@@ -60,7 +60,7 @@
 
         <div class="edit-overlay__buttons">
             <button class="edit-overlay__button" (click)="toggleEditExperienceOverlay()">Cancel</button>
-            <button class="edit-overlay__button" type="submit">Create</button>
+            <button class="edit-overlay__button" type="submit">Save</button>
         </div>
 
     </form>

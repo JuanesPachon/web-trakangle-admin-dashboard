@@ -1,6 +1,6 @@
 <div class="card">
   <div class="properties">
-    <img [src]="'http://localhost:3000/uploads/' + booking.images[0]" alt="" />
+    <img [src]="booking.images.length > 0 ? 'https://fzjqlxogwhycbjgrxtlo.supabase.co/storage/v1/object/public/trekangle-files/' + booking.images[0] : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'" alt="">
     <div class="property">
       <span class="title">Name</span>
       <h2>{{ booking.name }}</h2>
