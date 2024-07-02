@@ -15,7 +15,7 @@ export class BookingService {
       'Authorization': 'Bearer ' + localStorage.getItem('admin_token')
     });
 
-    return this.http.get('http://localhost:3000/bookings', {headers: headers})
+    return this.http.get('https://web-trekangle-server.onrender.com/bookings', {headers: headers})
 
   }
 }

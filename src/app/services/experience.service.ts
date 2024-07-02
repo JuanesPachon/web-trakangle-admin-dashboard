@@ -12,7 +12,7 @@ export class ExperienceService {
 
   ExperienceList(page: number, limit?: number): Observable<any> {
     const queryParams = `?page=${page}${limit ? `&limit=${limit}` : ''}`;
-    return this.http.get(`http://localhost:3000/experiences/${queryParams}`);
+    return this.http.get(`https://web-trekangle-server.onrender.com/experiences/${queryParams}`);
   }
 
   createExperience(formData: FormData) {
@@ -20,7 +20,7 @@ export class ExperienceService {
       'Authorization': 'Bearer ' + localStorage.getItem('admin_token')
     });
   
-    return this.http.post("http://localhost:3000/experiences", formData, { headers: headers });
+    return this.http.post("https://web-trekangle-server.onrender.com/experiences", formData, { headers: headers });
   }
 
   editExperience(formData: FormData, experienceId: string) {
@@ -30,7 +30,7 @@ export class ExperienceService {
 
     const filteredFormData = this.filterFormData(formData);
 
-    return this.http.patch(`http://localhost:3000/experiences/${experienceId}`, filteredFormData, {
+    return this.http.patch(`https://web-trekangle-server.onrender.com/experiences/${experienceId}`, filteredFormData, {
       headers: headers,
     });
   }
@@ -53,7 +53,7 @@ export class ExperienceService {
       Authorization: `Bearer ${localStorage.getItem('admin_token')}`,
     });
 
-    return this.http.delete(`http://localhost:3000/experiences/${experienceId}`, {
+    return this.http.delete(`https://web-trekangle-server.onrender.com/experiences/${experienceId}`, {
       headers: headers,
     });
   }

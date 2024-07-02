@@ -8,11 +8,11 @@ export class UserService {
   private http = inject(HttpClient);
 
   userList() {
-    return this.http.get('http://localhost:3000/users/');
+    return this.http.get('https://web-trekangle-server.onrender.com/users/');
   }
 
   registerUser(formValues: any) {
-    return this.http.post('http://localhost:3000/users', {
+    return this.http.post('https://web-trekangle-server.onrender.com/users', {
       name: formValues.name,
       userName: formValues.userName,
       email: formValues.email,
@@ -41,7 +41,7 @@ export class UserService {
       updateUser.password = formValues.password;
     }
 
-    return this.http.patch(`http://localhost:3000/users/${userId}`, updateUser, {
+    return this.http.patch(`https://web-trekangle-server.onrender.com/users/${userId}`, updateUser, {
       headers: headers,
     });
   }
@@ -52,7 +52,7 @@ export class UserService {
       Authorization: `Bearer ${localStorage.getItem('admin_token')}`,
     });
 
-    return this.http.delete(`http://localhost:3000/users/${userId}`, {
+    return this.http.delete(`https://web-trekangle-server.onrender.com/users/${userId}`, {
       headers: headers,
     });
   }

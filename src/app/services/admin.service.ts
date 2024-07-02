@@ -9,7 +9,7 @@ export class AdminService {
   private http = inject(HttpClient);
 
   loginAdmin(formValues: any) {
-    return this.http.post('http://localhost:3000/admin/login', {
+    return this.http.post('https://web-trekangle-server.onrender.com/admin/login', {
       email: formValues.email,
       password: formValues.password,
     });

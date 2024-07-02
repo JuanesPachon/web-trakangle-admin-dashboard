@@ -1,30 +1,30 @@
 <div class="main-wrapper">
-    <div class="sidebar">
-        <nav>
-            <div>
-                <img class="logo" src="/img/Logo_completo_BIT_project__horizontal.svg" alt="logo">
-                <ul>
-                    <li><a class="admin__options--1">Users</a></li>
-                    <li [routerLink]="'/experiences'"><a class="admin__options--2">Experiences</a></li>
-                    <li [routerLink]="'/bookings'"><a class="admin__options--3">Bookings</a></li>
-                </ul>
-            </div>
-            <button class="checkout" (click)="logOut()">Logout</button>
-        </nav>
+  <div class="sidebar">
+    <nav>
+      <div>
+        <img class="logo" src="/img/Logo_completo_BIT_project__horizontal.svg" alt="logo">
+        <ul>
+          <li><a class="admin__options--1">Users</a></li>
+          <li [routerLink]="'/experiences'"><a class="admin__options--2">Experiences</a></li>
+          <li [routerLink]="'/bookings'"><a class="admin__options--3">Bookings</a></li>
+        </ul>
+      </div>
+      <button class="checkout" (click)="logOut()">Logout</button>
+    </nav>
+  </div>
+  <main>
+    <div class="header__container">
+      <h1>Users list</h1>
+      <button (click)="toggleCreateOverlay()">Add new</button>
     </div>
-    <main>
-        <div class="header__container">
-            <h1>Users list</h1>
-            <button (click)="toggleCreateOverlay()">Add new</button>
-        </div>
-        <div class="card-list">
+    <div class="card-list">
 
-            @for (user of users(); track user._id) {
-                <app-card [user]="user"/>
-            }
-            
-        </div>
-    </main>
+      @for (user of users(); track user._id) {
+      <app-card [user]="user" />
+      }
+
+    </div>
+  </main>
 </div>
 
 <!-- Create user Overlay -->
@@ -52,15 +52,19 @@
       <input formControlName="email" type="email" id="email" name="email" placeholder="Email" />
     </div>
 
-    <div class="create-overlay__form-row">
+    <div class="create-overlay__form-row password-field">
       <label for="password">Password:</label>
-      <input formControlName="password" type="password" id="password" name="password" placeholder="Password" />
+      <input formControlName="password" [type]="viewPassword() ? 'text' : 'password'" id="password" name="password" placeholder="Password" />
+      <img class="password__icons show-password" (click)="togglePassword()" *ngIf="viewPassword()"
+        src="/img/show-password.svg" alt="show password icon">
+      <img class="password__icons" (click)="togglePassword()" *ngIf="!viewPassword()" src="/img/hide-password.svg"
+        alt="hide password icon">
     </div>
 
     <div *ngIf="errorMessage" class="error__message">{{ errorMessage }}</div>
 
     <div class="create-overlay__buttons">
-      <button class="create-overlay__button" type="submit" (click)="toggleCreateOverlay()" >Cancel</button>
+      <button class="create-overlay__button" type="submit" (click)="toggleCreateOverlay()">Cancel</button>
       <button class="create-overlay__button" type="submit">Create</button>
     </div>
 
@@ -71,9 +75,9 @@
 <!-- Success notification -->
 
 <div class="notification" *ngIf="activeNotification()">
-    <div class="notification__body">
-        <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
-        <p>The User was successfully created.</p>
-    </div>
-    <div class="notification__progress"></div>
+  <div class="notification__body">
+    <img src="/img/check-circle.svg" alt="Success" class="notification__icon">
+    <p>The User was successfully created.</p>
+  </div>
+  <div class="notification__progress"></div>
 </div>

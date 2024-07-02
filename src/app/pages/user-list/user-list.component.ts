@@ -85,6 +85,14 @@ export class UserListComponent {
     }
   }
 
+  //show password
+
+  viewPassword = signal(false);
+
+  togglePassword() {
+    this.viewPassword.update(value => !value);
+  }
+
   // Log Out
 
   logOut() {

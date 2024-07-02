@@ -42,7 +42,7 @@ export class UserCardComponent {
 
   onEditSubmit(event: Event) {
     if(this.editForm.valid){
-
+      
       this.userService.editUser(this.editForm.value, this.user._id).subscribe({
         next: (user) => {
           window.location.reload();
